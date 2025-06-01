@@ -70,6 +70,28 @@ This project integrates **ESP32-based environmental sensor data collection**, **
 
 ---
 
+### 🛢️ MySQL Database Setup
+
+1. Create a new MySQL database named `sensor_data`.  
+2. Inside the database, run the following SQL commands to create the required tables:
+
+```sql
+CREATE TABLE sensor_data (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  temperature DOUBLE,
+  humidity DOUBLE,
+  mq135 INT,
+  ldr INT,
+  time_col TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE predictions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  predicted_label VARCHAR(255),
+  prediction_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
 ### 🐍 Python Environment
 
 - Python 3.8+  
@@ -101,7 +123,7 @@ This project integrates **ESP32-based environmental sensor data collection**, **
 
 ---
 
-## 📜 License
+##  📜 License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
